@@ -1,3 +1,46 @@
+/**
+ * EcommerceBulkheadExample.java
+ *
+ * This Java program demonstrates the implementation of the Bulkhead pattern using Resilience4j
+ * to enhance the fault tolerance and stability of a payment processing service within an
+ * e-commerce application. The Bulkhead pattern limits the number of concurrent requests to a
+ * service, preventing it from being overwhelmed and ensuring that other parts of the system
+ * remain unaffected by high load or failure conditions.
+ *
+ * The program configures a bulkhead for the payment processing service, allowing a maximum
+ * number of concurrent transactions and using a timeout mechanism to handle overload conditions.
+ * It then simulates multiple payment requests to demonstrate the behavior of the bulkhead
+ * pattern in managing concurrent access and isolating service failures.
+ *
+ * Key Features:
+ * - Bulkhead Pattern: Uses Resilience4j to limit the number of concurrent payment transactions.
+ * - Service Isolation: Prevents the payment processing service from overwhelming the system.
+ * - Simulated Service Work: Introduces delays to simulate real-world payment processing.
+ * - Resilience4j Integration: Demonstrates the use of Resilience4j decorators for bulkhead management.
+ *
+ * Configuration:
+ * - Payment Processing Bulkhead: Configured to allow a maximum of 5 concurrent transactions, with a maximum wait duration of 1000ms.
+ *
+ * Usage:
+ * - This program can be executed directly, and it will simulate 10 payment requests.
+ * - Observe the console output to see how the bulkhead pattern manages concurrent requests and handles overload conditions.
+ *
+ * Author: Pythoholic
+ * Version: 1.0
+ * Date: 11 Jun 2024
+ *
+ * Dependencies:
+ * - Resilience4j 1.7.1
+ * - Java 11 or later
+ *
+ * License:
+ * - This code is provided under the MIT License.
+ *
+ * Example Output:
+ * - Payment result: Payment successful
+ * - Payment failed: Error: Payment service is currently overloaded. Please try again later.
+ */
+
 import io.github.resilience4j.bulkhead.Bulkhead;
 import io.github.resilience4j.bulkhead.BulkheadConfig;
 import io.github.resilience4j.bulkhead.BulkheadRegistry;

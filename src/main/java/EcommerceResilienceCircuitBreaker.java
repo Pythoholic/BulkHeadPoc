@@ -1,3 +1,45 @@
+/**
+ * EcommerceResilienceCircuitBreaker.java
+ *
+ * This Java program demonstrates the implementation of resilience patterns using Resilience4j,
+ * specifically the Bulkhead and Circuit Breaker patterns, to enhance the fault tolerance and
+ * reliability of a payment processing service in an e-commerce application.
+ *
+ * The program simulates multiple payment requests and uses correlation IDs to track and trace
+ * the lifecycle of each request through the system. It provides detailed logging to observe
+ * the behavior of the resilience mechanisms and the processing of each payment request.
+ *
+ * Key Features:
+ * - Bulkhead Pattern: Limits the number of concurrent payment transactions to prevent resource exhaustion.
+ * - Circuit Breaker Pattern: Detects and handles failures, preventing repeated attempts to call a failing service.
+ * - Correlation IDs: Unique identifiers for each request to trace their lifecycle through logs.
+ * - Enhanced Logging: Provides detailed context for each request, including thread names and correlation IDs.
+ *
+ * Configuration:
+ * - Bulkhead: Configured to allow a maximum of 5 concurrent payment transactions, with a maximum wait duration of 1000ms.
+ * - Circuit Breaker: Configured to open if 20% of requests fail, with a sliding window size of 10 requests and an open state duration of 5 seconds.
+ *
+ * Usage:
+ * - This program can be executed directly, and it will simulate 20 payment requests.
+ * - Observe the console output to see the detailed logging and how the bulkhead and circuit breaker patterns handle the requests.
+ *
+ * Author: Pythoholic
+ * Version: 1.0
+ * Date: 11 Jun 2024
+ *
+ * Dependencies:
+ * - Resilience4j 1.7.1
+ * - Java 11 or later
+ *
+ * License:
+ * - This code is provided under the MIT License.
+ *
+ * Example Output:
+ * - [<correlationId>] Processing payment...
+ * - [<correlationId>] Payment processed successfully.
+ * - [<correlationId>] Payment failed: <error_message>
+ */
+
 import io.github.resilience4j.bulkhead.Bulkhead;
 import io.github.resilience4j.bulkhead.BulkheadConfig;
 import io.github.resilience4j.bulkhead.BulkheadRegistry;

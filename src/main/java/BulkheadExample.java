@@ -1,3 +1,44 @@
+/**
+ * BulkheadExample.java
+ *
+ * This Java program demonstrates the implementation of the Bulkhead pattern using thread pools
+ * to isolate different services or components within an application. The Bulkhead pattern
+ * enhances the fault tolerance and stability of the system by limiting the number of concurrent
+ * tasks for each service, preventing one service from overwhelming the entire system.
+ *
+ * The program creates two separate thread pools for two services (Service A and Service B) and
+ * limits the number of concurrent tasks for each service. It simulates the execution of tasks
+ * for each service and ensures that the services can operate independently without affecting
+ * each other.
+ *
+ * Key Features:
+ * - Bulkhead Pattern: Uses separate thread pools to isolate services and limit concurrent tasks.
+ * - Service Isolation: Ensures that each service operates within its own resource constraints.
+ * - Simulated Service Work: Introduces delays to simulate real-world service processing.
+ *
+ * Configuration:
+ * - Service A Thread Pool: Configured to handle a maximum of 10 concurrent tasks.
+ * - Service B Thread Pool: Configured to handle a maximum of 5 concurrent tasks.
+ *
+ * Usage:
+ * - This program can be executed directly, and it will submit tasks to both services.
+ * - Observe the console output to see the responses from each service and how the bulkhead pattern operates.
+ *
+ * Author: Pythoholic
+ * Version: 1.0
+ * Date: 11 Jun 2024
+ *
+ * Dependencies:
+ * - Java 8 or later
+ *
+ * License:
+ * - This code is provided under the MIT License.
+ *
+ * Example Output:
+ * - Response from Service A: Service A response
+ * - Response from Service B: Service B response
+ */
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
